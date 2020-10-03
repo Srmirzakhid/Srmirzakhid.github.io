@@ -1,0 +1,89 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>This is your lecture number 1</title>
+	<style type="text/css">
+		body {
+			background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(121,9,51,0.196516106442577) 35%, rgba(0,212,255,1) 100%);
+		}
+		h1 {
+			text-align: center;
+		}
+		img {
+			border: 3px solid green;
+			border-radius: 30px
+			
+		}
+		.responsive {
+			height: auto;
+		}
+		.footer {
+			text-align: center;
+		}
+        button, input {
+            margin: 10px;
+            border: 3px solid blue;
+            border-radius: 5px;
+            background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(121,9,51,0.196516106442577) 35%, rgba(0,212,255,1) 100%);
+            background: #7F7FD5;  /* fallback for old browsers */
+            background: -webkit-linear-gradient(to right, #91EAE4, #86A8E7, #7F7FD5);  /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to right, #91EAE4, #86A8E7, #7F7FD5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+        }
+        .elements {
+        	display: flex; 
+            align-items: center; 
+            justify-content: center;
+        }
+        h3 {
+        	text-align: center;
+        	font-style: italic;
+        	color: green
+        }
+	</style>
+</head>
+<body>
+	<div>
+		<h1 class="note">There is will be days which you are lived</h1>
+	</div>
+<div class="elements"><input type="date" id="birthday"></div>
+<div class="elements">
+	<button>Calculate</button>
+</div>
+<h3 id="description">Description</h3>
+<div class="footer">
+	<img id="image" src="images\Старинные-часы.jpg" width="600" height="400" class="responsive" alt="hello">
+</div>
+<script type="text/javascript">
+	document.querySelector('button').onclick = function() {
+		var birthday = document.querySelector('#birthday').value;
+		var data = new Date();
+		var milliseconds = Date.parse(data) - Date.parse(birthday);
+		var day = Math.floor(milliseconds / 1000 / 60 / 60 / 24);
+		var some  = document.getElementsByClassName("note");
+		if (day < 0){
+			some[0].innerHTML = "Wrong number";
+		} else {
+			some[0].innerHTML = "You lived " + day + " days";
+		}
+		if (day < 1500){
+		document.getElementById("image").src = "images/Искренняя-радость.jpg";
+	    document.getElementById("description").innerHTML = "You are still young";
+		} else if (day < 6841){
+		document.getElementById("image").src = "images/На-занятиях.jpg";
+	    document.getElementById("description").innerHTML = "You should studing now";
+		}else if (day < 8000){
+			document.getElementById("image").src = "images/Всегда-и-Навеки.jpg";
+	    document.getElementById("description").innerHTML = "You should get married";
+		}else if (day < 9500){
+		document.getElementById("image").src = "images/Вдоль-кромки.jpg";
+	    document.getElementById("description").innerHTML = "You have family";
+		} else {
+			document.getElementById("image").src = "images/Дедушка-и-бабушка.jpg";
+	    document.getElementById("description").innerHTML = "You are oldest";
+		}
+	}
+</script>
+</body>
+</html>
